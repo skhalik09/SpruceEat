@@ -25,10 +25,11 @@ public class OpenChartTestBase {
 
         }
 
-//        @AfterMethod
-//        public void tearDown() {
+        @AfterMethod
+        public void tearDown() {
 //            driver.quit();
 //
 //        }
 
+}
 }

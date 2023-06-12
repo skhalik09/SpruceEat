@@ -1,6 +1,6 @@
 package com.test.openchart.tests;
 
-import com.test.openchart.pages.CustomerPage;
+import com.test.openchart.pages.CustomerHomePage;
 import com.test.openchart.pages.LoginPage;
 import org.testng.annotations.Test;
 
@@ -13,7 +13,7 @@ public class CustomerPageTest extends OpenChartTestBase{
         loginPage.errorMessage();
         Thread.sleep(1000);
 
-        CustomerPage customerPage = new CustomerPage(driver);
+        CustomerHomePage customerPage = new CustomerHomePage(driver);
         customerPage.customerPageFunctionality(driver,"Sayed","Khalik","skhalik007@yahoo.com","0000k","0000k");
 
 

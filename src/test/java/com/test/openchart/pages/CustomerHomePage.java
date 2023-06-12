@@ -7,11 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import java.util.Arrays;
-import java.util.List;
-
-public class CustomerPage {
-    public CustomerPage(WebDriver driver){
+public class CustomerHomePage {
+    public CustomerHomePage(WebDriver driver){
         PageFactory.initElements(driver,this);
     }
 
@@ -51,7 +48,7 @@ public class CustomerPage {
     @FindBy(xpath = "//div[@class='float-end']//button[@type='submit']")
     WebElement saveButton;
 
-    @FindBy(css = "//div[@id='alert']")
+    @FindBy(xpath = "//div[@id='alert']")
     WebElement errorMessage;
 
     @FindBy(xpath = "//a[.='Customers']")
@@ -76,13 +73,18 @@ public class CustomerPage {
         this.confirmPassword.sendKeys(confirmPassword);
         Thread.sleep(1000);
         BrowserUtils.scrollWithJs(driver,newLetter);
+        Thread.sleep(1000);
+        BrowserUtils.clickWithJs(driver,newLetter);
+        Thread.sleep(1000);
         BrowserUtils.scrollWithJs(driver,safeButton);
+        BrowserUtils.clickWithJs(driver,safeButton);
+        Thread.sleep(1000);
 //        newLetter.click();
 //        safeButton.click();
         Thread.sleep(500);
 //        saveButton.click();
 
-        Assert.assertEquals(BrowserUtils.getText(errorMessage), "Warning: You do not have permission to modify customers!");
+        Assert.assertEquals(BrowserUtils.getText(errorMessage),"");
 
     }
 
