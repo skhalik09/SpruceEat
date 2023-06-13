@@ -34,25 +34,23 @@ public class SpruceEatHomePage {
 
 
 
-    public void hoverIngredient(WebDriver driver) throws InterruptedException {
+    public void hoverIngredient(WebDriver driver,String fishSeafoodButton) throws InterruptedException {
 
         Actions actions = new Actions(driver);
          actions.moveToElement(ingredientsList).perform();
          Thread.sleep(1000);
-         ingredientsList.click();
+         if (BrowserUtils.getText(ingredientsList).contains(fishSeafoodButton)){
+             ingredientsList.click();
+         }
          Thread.sleep(1000);
-
         }
     public void findRecipe(String menuName) throws InterruptedException {
-
-
         recipeBox.sendKeys(menuName);
         Thread.sleep(1000);
         searchBox.click();
         Thread.sleep(1000);
     }
     public void ratingAndPopular() throws InterruptedException {
-
         ratingBox.click();
         Thread.sleep(1000);
         popularBox.click();
